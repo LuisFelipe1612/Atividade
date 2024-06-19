@@ -1,0 +1,58 @@
+public class Empregado {
+    // Atributos da classe Empregado
+    private String primeiroNome;
+    private String sobrenome;
+    private double salarioMensal;
+
+    // Construtor da classe Empregado
+    public Empregado(String primeiroNome, String sobrenome, double salarioMensal) {
+        this.primeiroNome = primeiroNome;
+        this.sobrenome = sobrenome;
+        
+        // Verifica e ajusta o salário mensal
+        if (salarioMensal > 0.0) {
+            this.salarioMensal = salarioMensal;
+        } else {
+            this.salarioMensal = 0.0;
+        }
+    }
+
+    // Métodos getters e setters
+    public String getPrimeiroNome() {
+        return primeiroNome;
+    }
+
+    public void setPrimeiroNome(String primeiroNome) {
+        this.primeiroNome = primeiroNome;
+    }
+
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
+    public double getSalarioMensal() {
+        return salarioMensal;
+    }
+
+    public void setSalarioMensal(double salarioMensal) {
+        if (salarioMensal > 0.0) {
+            this.salarioMensal = salarioMensal;
+        } else {
+            this.salarioMensal = 0.0;
+        }
+    }
+
+    // Método para calcular o salário anual
+    public double calcularSalarioAnual() {
+        return salarioMensal * 12;
+    }
+
+    // Método para aplicar aumento de 10% no salário
+    public void aplicarAumentoSalario() {
+        salarioMensal *= 1.1; // aumenta o salário em 10%
+    }
+}
