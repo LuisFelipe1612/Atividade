@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class TesteFatura {
+    public static void main(String[] args) {
+        // Criando um array para armazenar as faturas
+        Fatura[] faturas = new Fatura[3]; // Vamos criar 3 faturas para este exemplo
+
+        // Criando um scanner para entrada de dados
+        Scanner scanner = new Scanner(System.in);
+
+        // Preenchendo as faturas com dados fornecidos pelo usuário
+        for (int i = 0; i < faturas.length; i++) {
+            System.out.println("Fatura " + (i + 1));
+            System.out.print("Número do item: ");
+            String numeroItem = scanner.nextLine();
+
+            System.out.print("Descrição do item: ");
+            String descricaoItem = scanner.nextLine();
+
+            System.out.print("Quantidade comprada: ");
+            int quantidadeComprada = Integer.parseInt(scanner.nextLine());
+
+            System.out.print("Preço unitário: ");
+            double precoUnitario = Double.parseDouble(scanner.nextLine());
+
+            // Criando a fatura com os dados fornecidos
+            faturas[i] = new Fatura(numeroItem, descricaoItem, quantidadeComprada, precoUnitario);
+
+            System.out.println(); // linha em branco para separar as entradas
+        }
+
+        // Exibindo as informações de cada fatura
+        for (Fatura fatura : faturas) {
+            exibirFatura(fatura);
+        }
+
+        // Calculando e exibindo o valor total das faturas
+        double valorTotal = calcularValorTotalFaturas(faturas);
+        System.out.println("Valor total das faturas: R$ " + valorTotal);
+
+        // Fechando o scanner
+        scanner.close();
+    }
+
+    // Método auxiliar para exibir informações de uma fatura
+    public static void exibirFatura(Fatura fatura) {
+        System.out.println("Número do item: " + fatura.getNumeroItem());
+        System.out.println("Descrição do item: " + fatura.getDescricaoItem());
+        System.out.println("Quantidade comprada: " + fatura.getQuantidadeComprada());
+        System.out.println("Preço unitário: R$ " + fatura.getPrecoUnitario());
+        System.out.println("Valor total da fatura: R$ " + fatura.calcularValorFatura());
+        System.out.println();
+    }
+
+    // Método auxiliar para calcular o valor total das faturas
+    public static double calcularValorTotalFaturas(Fatura[] faturas) {
+        double valorTotal = 0.0;
+        for (Fatura fatura : faturas) {
+            valorTotal += fatura.calcularValorFatura();
+        }
+        return valorTotal;
+    }
+}
