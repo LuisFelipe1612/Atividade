@@ -1,0 +1,27 @@
+public class TesteEmpregado {
+    public static void main(String[] args) {
+        // Criando duas instâncias da classe Empregado
+        Empregado empregado1 = new Empregado("João", "Silva", 5000.0);
+        Empregado empregado2 = new Empregado("Maria", "Santos", 6000.0);
+
+        // Exibindo o salário anual de cada empregado
+        System.out.println("Salário anual do " + empregado1.getPrimeiroNome() + " " + empregado1.getSobrenome() +
+                ": R$ " + empregado1.calcularSalarioAnual());
+
+        System.out.println("Salário anual da " + empregado2.getPrimeiroNome() + " " + empregado2.getSobrenome() +
+                ": R$ " + empregado2.calcularSalarioAnual());
+
+        // Aplicando aumento de 10% no salário de cada empregado
+        empregado1.aplicarAumentoSalario();
+        empregado2.aplicarAumentoSalario();
+
+        // Exibindo o novo salário anual de cada empregado após o aumento
+        System.out.println("\nApós aumento de 10%:");
+
+        System.out.println("Novo salário anual do " + empregado1.getPrimeiroNome() + " " + empregado1.getSobrenome() +
+                ": R$ " + empregado1.calcularSalarioAnual());
+
+        System.out.println("Novo salário anual da " + empregado2.getPrimeiroNome() + " " + empregado2.getSobrenome() +
+                ": R$ " + empregado2.calcularSalarioAnual());
+    }
+}
